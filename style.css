@@ -1,0 +1,25 @@
+a.cp_btn {
+    display: inline-block;
+      width: 180px;
+      padding: 0.8em;
+      text-align: center;
+      text-decoration: none;
+      color: #222222;
+      border: 2px solid #444444;
+      border-radius: 3px;
+      -webkit-border-radius: 5px;/* for Safari and Chrome 対応*/
+      -moz-border-radius: 5px;/* for Firefox 対応*/
+      transition: .4s;
+  }
+  a.cp_btn:hover {
+      background: #444444;
+      color: #fff;
+  }
+  .square_btn:active {/*ボタンを押したとき*/
+      -ms-transform: translateY(4px);
+      -webkit-transform: translateY(4px);
+      transform: translateY(4px);/*下に動く*/
+      box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
+      border-bottom: none;
+  }
+  
