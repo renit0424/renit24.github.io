@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf8">
+  <title>renitホームページ</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129657075-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-129657075-1');
+  </script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+  <header id="header">
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+      <a class="navbar-brand" href="index.html">ren itホームページ</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">ホーム <span class="sr-only">(現在)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://nicopon.hatenablog.jp/">ブログ</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              ソフトウェア
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="https://github.com/renit24">GitHubのユーザーページ</a>
+              <a class="dropdown-item" href="link.html">ソフトウェア配布ページ</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacts.html">お問い合わせ</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <div id="nonheader">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">ソフトウェア配布</li>
+      </ol>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-9 col-xl-9">
+          <div id="maincontent">
+            <h3>ソフトウェア配布</h3>
+            <hr/>
+            <h5>防災情報読み上げツール</h5>
+                <hr />
+                <p>
+                  防災情報を棒読みちゃんが読み上げてくれます。<br>
+                  対応している情報<br>
+                  ・緊急地震速報<br>
+                  ・地震情報<br>
+                  ・強震モニタ速報<br>
+                  また、棒読みちゃんとVOICEROIDなどと連動できるプラグインを<a href="https://ch.nicovideo.jp/Wangdora/blomaga/ar126461" target="_blank">別途導入</a>することで<br>
+                  お好みの読み上げエンジンが使えます。<br>
+                  フォルダ内にある「FIlePath」に棒読みちゃんのフォルダ内に「RemoteTalk.exe」のファイルパスを指定して保存してください。<br>
+                  例：C:\BouyomiChan\RemoteTalk\RemoteTalk.exe<br>
+                  ※""(ダブルクォーテーション)は省いて下さい。<br>
+                  【更新履歴・予定】<br>
+                  バージョン1.1.2(2020/05/26)<br>
+                  ・ソフトウェア終了の不具合を再度修正？<br>
+                  バージョン1.1.1(2020/05/26)<br>
+                  ・ソフトウェア終了の不具合を修正？<br>
+                  ・使用するAPIを有効無効できるようにしました。<br>
+                  バージョン1.1.0(2020/05/24)<br>
+                  ・読み上げ文章が指定できるようになりました。<br>
+                  バージョン1.0.1(2020/05/24)<br>
+                  ・実行できない症状を修正<br>
+                  バージョン1.0.0(2020/05/24)<br>
+                  ・公開<br>
+                </p>
+                <p><a href="AppFolder/Bousai_Yomiage.zip" class="cp_btn" >防災情報読み上げ<br>ダウンロード</a></p>
+            <h5>Earthquake information List</h5>
+              <hr />
+                <p>
+                  地震情報を一覧で表示してくれます。<br>
+                  震度によって色分けされてます。<br>
+                  <p>【更新履歴】</p>
+                  バージョン1.0.0(2020/05/24)<br>
+                  ・公開<br>
+                  <img src="image/Earthquake information List.png" alt="Earthquake information List" title="Earthquake information List"></p>
+                  <p><a href="AppFolder/Earthquake information List.zip" class="cp_btn" >Earthquake information List<br>ダウンロード</a></p>
+            <h5>EqLevel1・EqLevel2(振動レベル表示ソフト)</h5>
+            <hr />
+              <p>こちらのソフトは、強震モニタについている振動レベルを見やすく表示するソフトです。<br>
+                  また、振動レベルが基準値を超えたら文字や背景の色が変わります。<br>
+                  <div onclick="obj=document.getElementById('menu1').style; obj.display=(obj.display=='none')?'block':'none';">
+                    <div onclick="obj=document.getElementById('menu2').style; obj.display=(obj.display=='none')?'block':'none';">
+
+                    <a style="cursor:pointer;">▼バージョン1 基準表</a>
+                  </div>
+                  <div id="menu1" style="display:none;clear:both;">
+                    【基準表】※バージョン1のみ<br>
+                      ～100 文字 白、背景黒+音無し<br>
+                      ～500 文字黒、背景水色+強震モニタの音あり(1.wav)<br>
+                      500～1000 文字黒、背景黄色+強震モニタの音あり(2.wav)<br>
+                      1000～1500 文字黒、背景橙+強震モニタの音あり(3.wav)<br>
+                      1500～2000 文字黄色、背景橙+強震モニタの音あり(4.wav)<br>
+                      2000～2500 文字黄色、背景赤+強震モニタの音あり(5.wav)<br>
+                      2500～ 文字黄色、背景紫+強震モニタの音あり(6.wav)<br>
+                  </div>
+                    <a style="cursor:pointer;">▼バージョン2 基準表</a>
+                  </div>
+                  <div id="menu2" style="display:none;clear:both;">
+                    【基準表】※バージョン2のみ<br>
+                    ～100 音あり(alarm1.wav)<br>
+                    ～500 音あり(alarm2.wav)<br>
+                    500～1000 音あり(alarm3.wav)<br>
+                    1000～1500 音あり(alarm4.wav)<br>
+                    1500～2000 音あり(alarm5.wav)<br>
+                    2000～2500 音あり(alarm6.wav)<br>
+                    2500～ 音あり(alarm7.wav)<br>
+                    基準およびサウンドは任意のものに変えることができます。<br>
+                    sound.txtを編集してください。<br>
+                  </div>
+                  <p><img src="image/EqLevel.png" alt="EqLevel" title="EqLevel">
+                  <img src="image/EqLevel2.png" alt="EqLevel2" title="EqLevel2"></p>
+                  <p>【更新履歴】</p>
+                  <p>2020/06/05 更新</p>
+                  <p>EqLevel2を公開いたしました。新しいバージョンの使い方は後日記述いたします。</p>
+                  <p>2019/11/09 更新</p>
+                  <p>取得しているWebページの証明が切れていたため、無理やり証明を通すようにしました。</p>
+                  <p><a href="AppFolder/EqLevel.zip" class="cp_btn" >EqLevel<br>ダウンロード</a>
+                  <a href="AppFolder/EqLevel2.zip" class="cp_btn" >EqLevel2<br>ダウンロード</a></p>
+
+            <h5>My state viewer(在席表示ソフト)</h5>
+            <hr />
+                  <p>こちらのソフトはYouTubeライブ、ニコニコ生放送、その他の配信サービスなどにて<br>
+                  自分が在席しているかなどを表示するためのものです。<br>
+                  OBSなどの配信ソフトを組み合わせてご使用ください。<br>
+                  【更新履歴・予定】<br>
+                  バージョン1.0.1(2019/04/01)<br>
+                  ・テキストボックスに入れたテキストを保存する機能の実装しました。<br>
+                  ・チェックボックスのオンオフで、<br>
+                  現在の時刻(PC内部時計)を表示する機能を実装しました。<br>
+                  <p>【更新履歴】</p>
+                  バージョン1.0.0<br>
+                  ・公開<br></p>
+                  <p><a href="AppFolder/My state viewer-ver.1.0.1.zip" class="cp_btn" >My state viewer<br>最新版ダウンロード</a>
+                  <a href="AppFolder/My state viewer.zip" class="cp_btn" >My state viewer<br>旧式版ダウンロード</a></p>
+            <h5>P2PQuake</h5>
+            <hr />
+                  <p>P2P地震情報の地震感知情報を表示してくれます。<br>
+                  開始時刻と感知数対応してます。<br>
+                  <p>【更新履歴】</p>
+                  バージョン1.0.0(2020/05/24)<br>
+                  ・公開<br>
+                  <img src="image/P2PQuake.png" alt="P2PQuake" title="P2PQuake"></p>
+                  <p><a href="AppFolder/P2PQuake.zip" class="cp_btn" >P2PQuake<br>ダウンロード</a></p>
+
+            <h5>Eqinfo2(地震情報取得ソフト)</h5>
+            <hr />
+                  <p>Yahoo防災・災害から取得した地震情報を表示し、<br>
+                  地図も表示するソフトです。<br>
+                  不定期更新・開発中止</p>
+                  <p><a href="AppFolder/Eqinfo2.zip" class="cp_btn" >Eqinfo2<br>ダウンロード</a></p>
+ 
+            <h5>(簡易地震情報取得ソフト) </h5>
+            <hr />
+                  <p>Yahoo防災・災害から取得した地震情報を表示しソフトです。<br>
+                  ※Eqinfo2も簡易版です。<br>
+                  不定期更新・開発中止</p>
+                  <p><a href="AppFolder/EQL.zip" class="cp_btn" >EQL<br>ダウンロード</a></p>
+ 
+            <h5>テロップソフト </h5>
+            <hr/>
+                  <p>テロップを表示したり緊急地震速報を受信時には自動切り替えができます。<br>
+                  不定期にて更新・開発休止</p>  
+                  <p><a href="#" class="cp_btn" >ダウンロード<br></a></p>
+            <p>[謝辞]</p>
+            <p><a href="http://www.kyoshin.bosai.go.jp/kyoshin/" target="_blank">・防災科学技術研究所様（強震モニタ・緊急地震速報）</a></p>
+            <p><a href="https://typhoon.yahoo.co.jp/weather/earthquake/" target="_blank">・Yahoo! JAPAN様（地震情報）</a></p>
+            <p><a href="https://www.p2pquake.net/"  target="_blank">・たくや(P2P地震情報)様（地震情報・津波情報・P2P地震感知情報）</a></p>
+            <p><a href="http://weathernews.jp/"  target="_blank">・WeatherNews様（地震情報)</a></p>
+            <p>[免責]<br>
+            このソフトを使用することにおいて発生したいかなる損害に対しても<br>
+            作者は責任を負いません。<br>
+            各自の責任のもとで使用してください。<br>
+            また、当ソフトをデコンパイル・解析して使用することを禁止します。<br></p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3">
+          <h4>プロフィール</h4>
+          <table class="table">
+            <tbody>
+              <tr>
+                <th scope="row">ニックネーム</th>
+                <td>ren it <small>もしくは</small> れんちょん</td>
+              </tr>
+              <tr>
+                <th scope="row">趣味</th>
+                <td>プログラミング （C#）</td>
+              </tr>
+              <tr>
+                <th scope="row">ひとこと</th>
+                <td>よろしくなのん</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <hr />
+      <p class="text-center">Copyright &copy; 2020 renit.</p>
+    </footer>
+  </div>
+</body>
+
+</html>
