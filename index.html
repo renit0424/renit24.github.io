@@ -103,9 +103,7 @@
     <footer>
       <hr />
       <script type="text/javascript">
-        var data = new Date();
-        var year = data.getFullYear();
-        document.getElementById("Year").innerText = year;
+        document.getElementById("Year").innerText = ( new Date().getFullYear() ).toString();;
       </script>
       <p class="text-center" >Copyright &copy; <span id="Year">2020</span> renit.</p>
     </footer>
