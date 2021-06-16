@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>タイトルなんかねぇーよ！！</title>
+  <meta name="robots" content="noindex">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.Marquee/1.5.0/jquery.marquee.js"></script>
+  <script type="text/javascript" src="js_css/jquery.simpleTicker.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/0.0.11/push.min.js"></script>
+  <script type="text/javascript" src="js_css/clock.js"></script>
+  <link rel="stylesheet" href="js_css/style.css">
+  <link href="js_css/jquery.simpleTicker.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="main-wrapper">
+    <div class="clock-wrap">
+      <span class="clock" id="view_clock">
+      </span>
+    </div>
+    <div class="telop-wrap">
+      <span class="size1 center" id="n_title">Error...</span>
+      <div class="marquee">
+        <p class="size1" id="n_list">Now Loading...</p>
+      </div>
+      <script type="text/javascript" src="https://renitapps.com/test/js_css/nhknews.js"></script>
+    </div>
+    <div class="service">
+      <div class="service-wrap">
+        <p class="size1 midashi">各種サービス稼働状況</p>
+        <div class="size2" id="info">Error...</div>
+        <script type="text/javascript" src="https://renitapps.com/test/js_css/service.js"></script>
+      </div>
+    </div>
+    <div class="weather-wrap">
+      <div class="weathertext-wrap">
+        <p class="size1 midashi" id="wename">Error...</p>
+      </div>
+      <div class="today">
+        <script src="https://api.renitapps.com/weather.php"></script>
+        <p class="size1" id="todaydata"></p>
+        <img id="todayimg">
+        <div class="temp-wrap">
+          <p id="todayhightemp"></p>
+          <p id="todayhightemp"></p>
+          <p id="todaylowtemp"></p>
+        </div>
+        <div>
+          <table>
+            <tbody id="table">
+            </tbody>
+          </table>
+        </div>
+        <p class="size1" id="todayweather"></p>
+        <div>
+          <dl>
+            <dt>出雲市の警報・注意報</dt>
+            <dd id="warning">
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="yesday">
+        <p class="size1" id="yesterdaydata"></p>
+        <img id="yesterdayimg">
+        <p class="size1" id="yesterdayweather"></p>
+        <div class="temp-wrap">
+          <p id="yesterdayhightemp"></p>
+          <p id="yesterdaylowtemp"></p>
+        </div>
+      </div>
+      <script type="text/javascript" src="https://renitapps.com/test/js_css/weather.js"></script>
+    </div>
+    <div class="quake-wrap">
+      <div class="quaketext-wrap">
+        <p class="size1" id="data">
+        </p>
+        <p class="size1" id="time">
+        </p>
+        <p class="size1">
+          <span id="name">---</span>
+        </p>
+        <p class="size1">
+          <span id="depth">---</span>
+        </p>
+        <p class="size1">
+          <span id="magnitude">--</span>
+        </p>
+        <p class="size1">
+          <span id="max_shindo">--</span>
+        </p>
+        <p class="size1" id="tsunami">---</p>
+        <form name="form">
+          <textarea readonly name="area" value="1" cols="52" rows="5.5" class="size1 " style="border:none; resize: none;   background-color:#d3d3d3;font-family:'メイリオ', 'Meiryo', sans-serif;">
+          </textarea>
+        </form>
+        <a href="https://bousai.renitapps.com/quake/quake.html">詳細はこちら</a>
+        <script type="text/javascript" src="https://renitapps.com/test/js_css/jma_quake.js"></script>
+      </div>
+    </div>
+    <div class="quake-list">
+      <p id="test">aaaaa</p>
+      <ul id="country_list">
+        <li>
+        </li>
+      </ul>
+      <script type="text/javascript" src="https://renitapps.com/test/js_css/jma_quakelist.js"></script>
+      <table id="sample-table">
+      </table>
+    </div>
+    <script type="text/javascript" src="https://renitapps.com/test/js_css/jma_tsunami.js"></script>
+    <div id="vtuber">
+
+    </div>
+  </div>
+</body>
+
+</html>
