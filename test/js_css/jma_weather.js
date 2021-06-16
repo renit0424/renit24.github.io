@@ -1,0 +1,1 @@
+https://www.jma.go.jp/bosai/quake/data/list.json?__time__=202103090018

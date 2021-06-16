@@ -1,0 +1,219 @@
+body {
+  background-color:#696969;
+  color:black;
+  font-family:'メイリオ', 'Meiryo', sans-serif;
+}
+.main-wrapper{
+  background-color:#d3d3d3;
+  width:1885px;
+  height:1064px;
+  position:relative;
+  display:inline-block;
+}
+.clock-wrap
+{
+ background-color:#d3d3d3;
+ border:3px solid #696969;
+ width:270px;
+ height:70px;
+ position:absolute;
+ top:5px;
+ left:5px;
+}
+.clock{
+  color:black;
+  position:absolute;
+  top:0px;
+  left:10px;
+  font-size:150%;
+}
+.telop-wrap
+{
+ background-color:#d3d3d3;
+ border:3px solid #696969;
+ width:1610px;
+ height:70px;
+ position:absolute;
+ top:5px;
+ left:285px;
+}
+.cen{
+  top:15px;
+}
+.container {
+  height:3rem;
+}
+.service{
+  background-color:#d3d3d3;
+  border:3px solid #696969;
+  width:590px;
+  height:220px;
+  position:absolute;
+  top:85px;
+  left:5px;
+}
+.service-wrap{
+  position:absolute;
+  top:-5px;
+  left:10px;
+}
+.weather-wrap 
+{
+ background-color:#d3d3d3;
+ border:3px solid #696969;
+ width:590px;
+ height:350px;
+ position:absolute;
+ top:315px;
+ left:5px;
+}
+.weathertext-wrap{
+  position:absolute;
+  top:-5px;
+  left:10px;
+}
+.today{
+  width: 240px;
+  position:absolute;
+  top:60px;
+  left:20px;
+}
+.temp-wrap{
+  position:absolute;
+  top:55px;
+  left:100px;
+}
+.yesday{
+  width: 240px;
+  position:absolute;
+  top:60px;
+  left:300px;
+}
+.yestemp-wrap{
+  position:absolute;
+  top:55px;
+  left:100px;
+}
+.quake-wrap 
+{
+ background-color:#d3d3d3;
+ border:3px solid #696969;
+ width:610px;
+ height:580px;
+ position:absolute;
+ top:85px;
+ left:605px;
+}
+.quaketext-wrap{
+  position:absolute;
+  top:-5px;
+  left:10px;
+}
+.quake-list{
+  width:610px;
+  height:580px;
+  position:absolute;
+  top:85px;
+  left:1250px;
+}
+.new_line {
+  display: block;
+}
+.news-wrap 
+{
+ background-color:#d3d3d3;
+ border:3px solid #696969;
+ width:560px;
+ height:280px;
+ position:absolute;
+ top:490px;
+ left:605px;
+}
+.newstext-wrap{
+  position:absolute;
+  top:-5px;
+  left:10px;
+}
+.train
+{
+ background-color:#d3d3d3;
+ border:3px solid #696969;
+ width:590px;
+ height:350px;
+ position:absolute;
+ top:655px;
+ left:5px;
+}
+.center{
+  position:absolute;
+  top:20px;
+  left:10px;
+}
+.size1 {
+  font-size: 1.25rem;
+}
+.size2 {
+  font-size: 1.1rem;
+}
+.midashi{
+  border-left: thick solid #666666;
+  padding-left: 10px;
+}
+th,td {
+  border:solid 1px;          /* 枠線指定 */
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse; /* セルの線を重ねる */
+}
+
+th {
+  width: 200px;              /* 幅指定 */
+  height:40px;               /* 高さ指定 */
+}
+.marquee {
+width:1430px;
+height:60px;
+padding:1.25em 0;
+overflow:hidden;
+position:relative;
+left:180px;
+}
+
+.marquee p:after {
+content:"";
+white-space:nowrap;
+padding-right:50px;
+}
+
+.marquee p {
+margin:0;
+padding-left:1600px;
+display:inline-block;
+white-space:nowrap;
+	animation-name:marquee;
+	animation-timing-function:linear;
+	animation-duration:60s;
+	animation-iteration-count:infinite;
+}
+@-webkit-keyframes marquee {
+  from   { -webkit-transform:translate(0%);}
+  99%,to { -webkit-transform:translate(-100%);}
+}
+@-moz-keyframes marquee {
+  from   { -moz-transform:translate(0%);}
+  99%,to { -moz-transform:translate(-100%);}
+}
+@-ms-keyframes marquee {
+  from   { -ms-transform:translate(0%);}
+  99%,to { -ms-transform:translate(-100%);}
+}
+@-o-keyframes marquee {
+  from   { -o-transform:translate(0%);}
+  99%,to { -o-transform:translate(-100%);}
+}
+@keyframes marquee {
+  from   { transform:translate(0%);}
+  99%,to { transform:translate(-100%);}
+}
