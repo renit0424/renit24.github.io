@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf8">
-  <title>renitホームページ</title>
+  <title>自己紹介｜renitホームページ</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129657075-1"></script>
@@ -106,10 +106,12 @@
         </div>
       </div>
     </div>
-
     <footer>
       <hr />
-      <p class="text-center">Copyright &copy; 2020 renit.</p>
+      <p class="text-center" >Copyright &copy; <span id="Year">2020</span> renit.</p>
+      <script type="text/javascript">
+        document.getElementById("Year").innerText = new Date().getFullYear();
+      </script>
     </footer>
   </div>
 </body>
