@@ -1,7 +1,7 @@
 timerID = setInterval('service()',10000);
 service();
 function service() {
-    var url = 'https://api.renitapps.com/service.php';
+    var url = 'https://renitapps.com/test/service.php';
     fetch(url).then(function (response) {
       return response.json();
     }).then(function (json) {
