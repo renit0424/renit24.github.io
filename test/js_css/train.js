@@ -2,7 +2,7 @@ timerID = setInterval('train()', 10000);
 train();
 
 function train() {
-	var url = 'https://api.renitapps.com/train.php';
+	var url = 'https://renitapps.com/test/train.php';
 	fetch(url).then(function(response) {
 		return response.json();
 	}).then(function(json) {
