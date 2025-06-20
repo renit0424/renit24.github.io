@@ -8,8 +8,8 @@ function quake() {
 		return response.json();
 	}).then(function(json) {
             //var url = "https://www.jma.go.jp/bosai/tsunami/data/"+json[i].json;
-                    #var url = "https://www.jma.go.jp/bosai/tsunami/data/20250602035816_20250602035202_VTSE41_0.json";
-		    var url = "https://renitapps.com/test/js_css/tsunami_sample.json";
+                //var url = "https://www.jma.go.jp/bosai/tsunami/data/20250602035816_20250602035202_VTSE41_0.json";
+		var url = "https://renitapps.com/test/js_css/tsunami_sample.json";
 		//var url = "https://www.jma.go.jp/bosai/quake/data/20210316045849_20210316045628_VXSE52_0.json"
 		fetch(url).then(function(response) {
 			return response.json();
