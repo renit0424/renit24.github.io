@@ -2,7 +2,7 @@ timerID = setInterval('weather()', 10000);
 weather();
 
 function weather() {
-	var url = 'weather.php';
+	var url = 'https://renitapps.com/test/weather.php';
 	fetch(url).then(function(response) {
 		return response.json();
 	}).then(function(json) {
