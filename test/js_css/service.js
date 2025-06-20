@@ -5,7 +5,7 @@ function service() {
     fetch(url).then(function (response) {
       return response.json();
     }).then(function (json) {
-        var cnt = json['list'].length;
+        var cnt = Object.keys(json['list']).length;
         var list = "";
         for (var i = 0; i < cnt; i++) {
             if (json['list'][i].status == "OK"){
