@@ -1,4 +1,4 @@
-timerID = setInterval('getNHK()', 10000);
+timerID = setInterval('getNHK()', 600000);
 getNHK();
 
 function getNHK() {
