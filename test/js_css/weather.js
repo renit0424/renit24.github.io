@@ -6,8 +6,8 @@ function weather() {
 	fetch(url).then(function(response) {
 		return response.json();
 	}).then(function(json) {
-		document.getElementById("wename").innerHTML = json['name'];
-		document.getElementById("todaydata").innerHTML = json['today_weather'][
+		document.getElementById("wename").innerHTML = json['title'];
+		document.getElementById("todaydata").innerHTML = json['weather'][
 			'data'
 		];
 		var img = document.getElementById("todayimg");
