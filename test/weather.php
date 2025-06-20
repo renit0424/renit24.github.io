@@ -1,7 +1,8 @@
 <?php
   header('Access-Control-Allow-Origin: *');
   require_once('./phpQuery-onefile.php');
-  $html = file_get_contents('https://tenki.jp/forecast/7/35/6810/32203/');
+  #$html = file_get_contents('https://tenki.jp/forecast/7/35/6810/32203/'); //島根県出雲市
+  $html = file_get_contents('https://tenki.jp/forecast/6/30/6200/27100/'); //大阪府大阪市
   if(!isset($html)){
   }
   else{
