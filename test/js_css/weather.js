@@ -7,7 +7,7 @@ function weather() {
 		return response.json();
 	}).then(function(json) {
 		document.getElementById("wename").innerHTML = json['title'];
-		document.getElementById("todaydata").innerHTML = json['forecasts'][0]['data'];
+		document.getElementById("todaydata").innerHTML = json['forecasts'][0]['date'];
 		var img = document.getElementById("todayimg");
 		img.src = json['today_weather']['img'];
 		img.alt = '天気';
