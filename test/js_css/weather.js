@@ -2,8 +2,8 @@ timerID = setInterval('weather()', 600000);
 weather();
 
 function weather() {
-	var url = 'https://api.renitapps.com/weather.php';
-	//var url = 'https://weather.tsukumijima.net/api/forecast?city=270000';
+	//var url = 'https://api.renitapps.com/weather.php';
+	var url = 'https://weather.tsukumijima.net/api/forecast?city=270000';
 	fetch(url).then(function(response) {
 		return response.json();
 	}).then(function(json) {
@@ -13,8 +13,8 @@ function weather() {
 		img.src = json['forecasts'][0]['image']['url'];
 		img.alt = '天気';
 		document.getElementById("todayweather").innerHTML = "天気　" + json['forecasts'][0]['telop'];
-		document.getElementById("todayhightemp").innerHTML = "最高 " + json['forecasts'][0]['temperature']['max']['celsius'] + "℃";
-		document.getElementById("todaylowtemp").innerHTML = "最低 " + json['forecasts'][0]['temperature']['min']['celsius']	+ "℃";
+		document.getElementById("todayhightemp").innerHTML = "最高 " + json['forecasts'][0]['temperature']['max']['celsius']?.toString() ?? "" + "℃";
+		document.getElementById("todaylowtemp").innerHTML = "最低 " + json['forecasts'][0]['temperature']['min']['celsius']?.toString() ?? "" + "℃";
 
 		document.getElementById("yesterdaydata").innerHTML = json['forecasts'][1]['date'];
 		var img = document.getElementById("yesterdayimg");
