@@ -9,26 +9,27 @@ function weather() {
 		document.getElementById("wename").innerHTML = json['title'];
 		document.getElementById("todaydata").innerHTML = json['forecasts'][0]['date'];
 		var img = document.getElementById("todayimg");
-		img.src = json['today_weather']['img'];
+		img.src = json['forecasts'][0]['image']['url'];
 		img.alt = '天気';
 		document.getElementById("todayweather").innerHTML = "天気　" + json['forecasts'][0]['telop'];
-		document.getElementById("todayhightemp").innerHTML = "最高 " + json['today_weather'][0]['temperature']['max']['celsius'];
-		document.getElementById("todaylowtemp").innerHTML = "最低 " + json['today_weather'][0]['temperature']['min']['celsius'];
+		document.getElementById("todayhightemp").innerHTML = "最高 " + json['forecasts'][0]['temperature']['max']['celsius'];
+		document.getElementById("todaylowtemp").innerHTML = "最低 " + json['forecasts'][0]['temperature']['min']['celsius'];
 
-		document.getElementById("yesterdaydata").innerHTML = json['yesterday_weather']['data'];
+		document.getElementById("yesterdaydata").innerHTML = json[
+			'yesterday_weather']['data'];
 		var img = document.getElementById("yesterdayimg");
 		img.src = json['yesterday_weather']['img'];
 		img.alt = '天気';
-		document.getElementById("yesterdayweather").innerHTML = "天気　" + json[	'yesterday_weather']['weather'];
-		document.getElementById("yesterdayhightemp").innerHTML = "最高 " + json['yesterday_weather']['hightemp'] + "[" + json['yesterday_weather']['hightemp_diff'] + "]";
-		document.getElementById("yesterdaylowtemp").innerHTML = "最低 " + json['yesterday_weather']['lowtemp'] + "[" + json['yesterday_weather']['lowtemp_diff'] + "]";
+		document.getElementById("yesterdayweather").innerHTML = "天気　" + json['forecasts'][1]['telop']
+		document.getElementById("yesterdayhightemp").innerHTML = "最高 " + json['forecasts'][1]['temperature']['max']['celsius'];
+		document.getElementById("yesterdaylowtemp").innerHTML = "最低 " + json['forecasts'][1]['temperature']['min']['celsius'];
 
-		var Ww = json['warning'];
-		if ("warning" in json) {
-			document.getElementById("warning").innerHTML = Ww;
-		} else {
-			console.log("false");
-			document.getElementById("warning").innerHTML = "現在発表なし";
-		}
+		// var Ww = json['warning'];
+		// if ("warning" in json) {
+		// 	document.getElementById("warning").innerHTML = Ww;
+		// } else {
+		// 	console.log("false");
+		// 	document.getElementById("warning").innerHTML = "現在発表なし";
+		// }
 	})
 }
