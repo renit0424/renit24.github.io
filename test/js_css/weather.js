@@ -2,7 +2,8 @@ timerID = setInterval('weather()', 10000);
 weather();
 
 function weather() {
-	var url = 'https://api.renitapps.com/weather.php';
+	//var url = 'https://api.renitapps.com/weather.php';
+	var url = 'https://weather.tsukumijima.net/api/forecast?city=270000';
 	fetch(url).then(function(response) {
 		return response.json();
 	}).then(function(json) {
