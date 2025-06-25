@@ -1,4 +1,4 @@
-timerID = setInterval('weather()', 10000);
+timerID = setInterval('weather()', 600000);
 weather();
 
 function weather() {
