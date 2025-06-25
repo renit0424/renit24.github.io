@@ -12,13 +12,8 @@ function weather() {
 		img.src = json['today_weather']['img'];
 		img.alt = '天気';
 		document.getElementById("todayweather").innerHTML = "天気　" + json['forecasts'][0]['telop'];
-		document.getElementById("todayhightemp").innerHTML = "最高 " + json[
-			'today_weather']['hightemp'] + "[" + json['today_weather'][
-			'hightemp_diff'
-		] + "]";
-		document.getElementById("todaylowtemp").innerHTML = "最低 " + json[
-				'today_weather']['lowtemp'] + "[" + json['today_weather']['lowtemp_diff'] +
-			"]";
+		document.getElementById("todayhightemp").innerHTML = "最高 " + json['today_weather'][0]['temperature']['max']['celsius'];
+		document.getElementById("todaylowtemp").innerHTML = "最低 " + json['today_weather'][0]['temperature']['min']['celsius'];
 
 		document.getElementById("yesterdaydata").innerHTML = json[
 			'yesterday_weather']['data'];
