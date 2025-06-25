@@ -7,14 +7,11 @@ function weather() {
 		return response.json();
 	}).then(function(json) {
 		document.getElementById("wename").innerHTML = json['title'];
-		document.getElementById("todaydata").innerHTML = json['weather'][
-			'data'
-		];
+		document.getElementById("todaydata").innerHTML = json['forecasts'][0]['data'];
 		var img = document.getElementById("todayimg");
 		img.src = json['today_weather']['img'];
 		img.alt = '天気';
-		document.getElementById("todayweather").innerHTML = "天気　" + json[
-			'today_weather']['weather'];
+		document.getElementById("todayweather").innerHTML = "天気　" + json['forecasts'][0]['telop'];
 		document.getElementById("todayhightemp").innerHTML = "最高 " + json[
 			'today_weather']['hightemp'] + "[" + json['today_weather'][
 			'hightemp_diff'
