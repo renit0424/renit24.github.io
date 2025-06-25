@@ -15,21 +15,13 @@ function weather() {
 		document.getElementById("todayhightemp").innerHTML = "最高 " + json['today_weather'][0]['temperature']['max']['celsius'];
 		document.getElementById("todaylowtemp").innerHTML = "最低 " + json['today_weather'][0]['temperature']['min']['celsius'];
 
-		document.getElementById("yesterdaydata").innerHTML = json[
-			'yesterday_weather']['data'];
+		document.getElementById("yesterdaydata").innerHTML = json['yesterday_weather']['data'];
 		var img = document.getElementById("yesterdayimg");
 		img.src = json['yesterday_weather']['img'];
 		img.alt = '天気';
-		document.getElementById("yesterdayweather").innerHTML = "天気　" + json[
-			'yesterday_weather']['weather'];
-		document.getElementById("yesterdayhightemp").innerHTML = "最高 " + json[
-			'yesterday_weather']['hightemp'] + "[" + json['yesterday_weather'][
-			'hightemp_diff'
-		] + "]";
-		document.getElementById("yesterdaylowtemp").innerHTML = "最低 " + json[
-			'yesterday_weather']['lowtemp'] + "[" + json['yesterday_weather'][
-			'lowtemp_diff'
-		] + "]";
+		document.getElementById("yesterdayweather").innerHTML = "天気　" + json[	'yesterday_weather']['weather'];
+		document.getElementById("yesterdayhightemp").innerHTML = "最高 " + json['yesterday_weather']['hightemp'] + "[" + json['yesterday_weather']['hightemp_diff'] + "]";
+		document.getElementById("yesterdaylowtemp").innerHTML = "最低 " + json['yesterday_weather']['lowtemp'] + "[" + json['yesterday_weather']['lowtemp_diff'] + "]";
 
 		var Ww = json['warning'];
 		if ("warning" in json) {
