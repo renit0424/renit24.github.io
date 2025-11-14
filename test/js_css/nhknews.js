@@ -2,7 +2,8 @@ timerID = setInterval('getNHK()', 600000);
 getNHK();
 
 function getNHK() {
-	var url = 'https://www3.nhk.or.jp/news/json16/syuyo.json';
+	//var url = 'https://www3.nhk.or.jp/news/json16/syuyo.json'; 旧URL
+	var url = 'https://news.web.nhk/news/json16/syuyo.json'; //新URL
 	fetch(url).then(function(response) {
 		return response.json();
 	}).then(function(json) {
@@ -19,3 +20,4 @@ function getNHK() {
 		document.getElementById("n_title").innerText = "NHKニュース主要";
 	})
 }
+
