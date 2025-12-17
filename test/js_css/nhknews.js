@@ -3,7 +3,8 @@ getNHK();
 
 function getNHK() {
 	//var url = 'https://www3.nhk.or.jp/news/json16/syuyo.json'; 旧URL
-	var url = 'https://news.web.nhk/news/json16/syuyo.json'; //新URL
+	//var url = 'https://news.web.nhk/news/json16/syuyo.json'; //新URL
+	var url = 'https://api.renitapps.com/nhk_syuyo.php';
 	fetch(url).then(function(response) {
 		return response.json();
 	}).then(function(json) {
@@ -20,4 +21,5 @@ function getNHK() {
 		document.getElementById("n_title").innerText = "NHKニュース主要";
 	})
 }
+
 
