@@ -98,7 +98,7 @@
               for (var i = 0; i <= cnt; i++) {
                   area.push(json2.Body.Tsunami.Forecast.Item[i].Area.Name);
                   kind.push(json2.Body.Tsunami.Forecast.Item[i].Category.Kind.Name);
-                  if(json2.Body.Tsunami.Forecast.Item[i].FirstHeight)
+                  if('Condition' in json2.Body.Tsunami.Forecast.Item[i])
                   {
                       firstHeight.push(json2.Body.Tsunami.Forecast.Item[i].FirstHeight.Condition);
                   }
