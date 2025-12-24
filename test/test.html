@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>サンプル</title>
+    <meta charset="utf-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+
+    <style>
+    div#paging
+    {
+      text-align: center;
+      /* スクロールに対してページングボックスの位置を固定 */
+      position: fixed;
+      /* 位置を指定 */
+      bottom: 0;
+      right:45%;
+    }
+
+    div#pagingbox{
+      background: #FFF;
+    }
+
+    th{
+      /* ヘッダ背景塗りつぶし */
+      background: #eee;
+    }
+   th,td {
+     /* 枠線を1本線指定 */
+      border: solid 0.5px;
+      width:auto;
+   }
+
+   table{
+     /* 枠線を1本線指定 */
+      border: solid 0.5px;
+      border-collapse:  collapse;
+      white-space: nowrap;
+    }
+
+    footer{
+      position: fixed;
+      width: 100%;
+      background-color: #C0C0C0;
+      padding: 15px 0;
+      bottom: 0; /*下に固定*/
+    }
+    </style>
+
+  </head>
+
+
+
+
+  <body>
+    <!--テーブル生成位置-->
+    <div id ='maintable'></div>
+
+
+
+    <!--ページングボタン配置-->
+    <footer>
+      <div id="paging">
+        <table>
+          <tr>
+            <tb><button id="prevbtn" type="button"><</button></tb>
+              <tb>
+                <span id="currentpage">currentpage</span>
+                  /
+                <span id="lastpage">lastpage</span>
+              </tb>
+            <tb><button id="nextbtn" type="button">></button></tb>
+          </tr>
+        </table>
+      </div>
+    </footer>
+
+
+    <script>
+      var area = [""];
+      var kind = [""];
+      var firstHeight = [""];
+      var maxHeight  = [""];
+      var type = "";
+      var cnt = 0;
+      //var url = "https://www.jma.go.jp/bosai/tsunami/data/"+json[i].json;
+      var url = "https://www.jma.go.jp/bosai/tsunami/data/20251208232356_20251208231519_VTSE41_0.json";
+      //var url = "https://renitapps.com/test/js_css/tsunami_sample.json";
+      //var url = "https://www.jma.go.jp/bosai/quake/data/20210316045849_20210316045628_VXSE52_0.json"
+      fetch(url).then(function(response) {
+          return response.json();
+      }).then(function(json2) {
+          var type = json2.Head.Title;
+          var text = json2.Head.Headline.Text;
+          console.log(text);
+          if(type == "津波警報・津波注意報・津波予報"){
+    
+              cnt = json2.Body.Tsunami.Forecast.Item.length-1;
+              for (var i = 0; i <= cnt; i++) {
+                  area.push(json2.Body.Tsunami.Forecast.Item[i].Area.Name);
+                  kind.push(json2.Body.Tsunami.Forecast.Item[i].Category.Kind.Name);
+                  if(json2.Body.Tsunami.Forecast.Item[i].FirstHeight)
+                  {
+                      firstHeight.push(json2.Body.Tsunami.Forecast.Item[i].FirstHeight.Condition);
+                  }
+                  else{
+                      firstHeight.push(" ");
+                  }
+                  
+                  maxHeight.push(json2.Body.Tsunami.Forecast.Item[i].MaxHeight.TsunamiHeight+"m");
+                  //console.log(area[i]+"  "+kind[i]+"  "+firstHeight[i] +"  "+ maxHeight[i]);
+              }
+          }
+          var str = new Date(json2.Head.ReportDateTime);
+          var time = ('00' + (str.getMonth() + 1)).slice(-2) + "月" + ("0" + str.getDay())
+          .slice(-2) + "日 " + ("0" + str.getHours()).slice(-2) + "時" + ("0" + str.getMinutes())
+          .slice(-2) + "分";
+          console.log(area[i]+"  "+kind[i]+"  "+firstHeight[i] +"  "+ maxHeight[i]);
+          console.log(cnt);
+          const jsonArray = []; // 空の配列を初期化
+          for (let i = 0; i < cnt; i++) {
+              const newData = { // 追加する新しいオブジェクト
+                  "種類": kind[i],
+                  "地点": area[i], 
+                  "到達予想時間/高さ": firstHeight[i] +"  "+ maxHeight[i]
+              };
+            jsonArray.push(newData); // 配列の末尾に新しいオブジェクトを追加
+          }
+
+  // table要素を生成
+      var table = document.createElement('table');
+
+      // ヘッダーを作成
+      var tr = document.createElement('tr');
+      for (key in jsonArray[0]) {
+            // th要素を生成
+            var th = document.createElement('th');
+            // th要素内にテキストを追加
+            th.textContent = key;
+            // th要素をtr要素の子要素に追加
+            tr.appendChild(th);
+            }
+        // tr要素をtable要素の子要素に追加
+        table.appendChild(tr);
+
+      // テーブル本体を作成
+      for (var i = 0; i < jsonArray.length; i++) {
+        // tr要素を生成
+        var tr = document.createElement('tr');
+        // th・td部分のループ
+        for (key in jsonArray[0]) {
+              // td要素を生成
+              var td = document.createElement('td');
+              // td要素内にテキストを追加
+              td.textContent = jsonArray[i][key];
+              // td要素をtr要素の子要素に追加
+              tr.appendChild(td);
+            }
+        // tr要素をtable要素の子要素に追加
+        table.appendChild(tr);
+        }
+      // 生成したtable要素を追加する
+      document.getElementById('maintable').appendChild(table);
+      })
+    </script>
+
+
+    <script>// ページング機能
+    jQuery(function($) {
+      var page = 0;
+      var displayrows = 30;// １ページ当たり表示する行の数
+
+      function draw() {// ページの表示
+        $('#lastpage').html(Math.ceil(($('tr').size()-1)/displayrows));
+        $('#currentpage').html(page + 1);
+        $('tr').hide();
+        $('tr:first,tr:gt(' + page * displayrows + '):lt(' + displayrows + ')').show();// 変数を使用する場合は' +  + 'を忘れずに
+      }
+      $('#prevbtn').click(function() {// １ページ後進
+        if (page > 0) {
+          page--;
+          draw();
+        }
+      });
+      $('#nextbtn').click(function() {// １ページ前進
+        if (page < ($('tr').size() - 1) /displayrows - 1) {
+          page++;
+          draw();
+        }
+      });
+      draw();//初回表示
+    });
+    </script>
+  </body>
+</html>
