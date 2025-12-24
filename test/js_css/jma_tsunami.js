@@ -74,7 +74,7 @@ function quake() {
                     var p2 = document.createElement('p');
                     // テキスト情報を作成
                     var text = document.createTextNode(type);
-                    var text2= document.createTextNode(" "+time);
+                    var text2= document.createTextNode(area[i]+"  "+kind[i]+"  "+firstHeight[i] +"  "+ maxHeight[i]);
                     var text3 = document.createTextNode(name);
 
                     var maxint = "0";
@@ -120,6 +120,7 @@ function quake() {
         }
     })
 }
+
 
 
 
