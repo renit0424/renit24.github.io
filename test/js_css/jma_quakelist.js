@@ -54,73 +54,74 @@ function quake() {
 			cnt[i] = json2.Body.Intensity.Observation.Pref.length -1;
 		
             // ul要素を取得
-            var ul = document.getElementById('country_list');
+            //var ul = document.getElementById('country_list');
 
             // ul要素にli要素を追加
-            for (var count = 1; count < i; count++) {
-                // li要素を作成
-                var li = document.createElement('li');
-                var p = document.createElement('p');
-                var p2 = document.createElement('p');
-                // テキスト情報を作成
-                var text = [];
-                text[count] = document.createTextNode(type);
-                var text2= document.createTextNode(" "+time);
-                var text3 = document.createTextNode(name[count]);
-                var text4 = document.createTextNode(" 深さ"+depth[count]+"km");
-                var text5 = document.createTextNode(" 規模(M)"+mag[count]);
-                var text6 = document.createTextNode(" 最大震度"+maxint[count]);
+            // for (var count = 1; count < i; count++) {
+            //     // li要素を作成
+            //     var li = document.createElement('li');
+            //     var p = document.createElement('p');
+            //     var p2 = document.createElement('p');
+            //     // テキスト情報を作成
+            //     var text = [];
+            //     text[count] = document.createTextNode(type);
+            //     var text2= document.createTextNode(" "+time);
+            //     var text3 = document.createTextNode(name[count]);
+            //     var text4 = document.createTextNode(" 深さ"+depth[count]+"km");
+            //     var text5 = document.createTextNode(" 規模(M)"+mag[count]);
+            //     var text6 = document.createTextNode(" 最大震度"+maxint[count]);
 
-                if (maxint[count] == "1") { //震度1
-                    li.style.backgroundColor = '#ececec';
+            //     if (maxint[count] == "1") { //震度1
+            //         li.style.backgroundColor = '#ececec';
        
-                } 
-                else if (maxint[count] == "2") { //震度2
+            //     } 
+            //     else if (maxint[count] == "2") { //震度2
                    
-                   li.style.backgroundColor = '#0097ff';
-                } else if (maxint[count] == "3") { //震度3
+            //        li.style.backgroundColor = '#0097ff';
+            //     } else if (maxint[count] == "3") { //震度3
                     
-                    li.style.backgroundColor = '#0058e4';
+            //         li.style.backgroundColor = '#0058e4';
        
-                } else if (maxint[count] == "4") { //震度4
+            //     } else if (maxint[count] == "4") { //震度4
                     
-                    li.style.backgroundColor = '#f7ea41';
+            //         li.style.backgroundColor = '#f7ea41';
        
-                } else if (maxint[count] == "5-") { //震度5-
+            //     } else if (maxint[count] == "5-") { //震度5-
                     
-                    li.style.backgroundColor = '#ffc32e';
+            //         li.style.backgroundColor = '#ffc32e';
        
-                } else if (maxint[count] == "5+") { //震度5+
+            //     } else if (maxint[count] == "5+") { //震度5+
                     
-                    li.style.backgroundColor = '#ff962a';
+            //         li.style.backgroundColor = '#ff962a';
        
-                } else if (maxint[count] == "6-") { //震度6-
+            //     } else if (maxint[count] == "6-") { //震度6-
                     
-                    li.style.backgroundColor = '#f91f1c';
+            //         li.style.backgroundColor = '#f91f1c';
        
-                } else if (maxint[count] == "6+") { //震度6+
-                    li.style.backgroundColor = '#c60036';
+            //     } else if (maxint[count] == "6+") { //震度6+
+            //         li.style.backgroundColor = '#c60036';
        
-                } else if (maxint[count] == "7") { //震度7
+            //     } else if (maxint[count] == "7") { //震度7
                     
-                    li.style.backgroundColor = '#c20086';
-                }
-                else {
-                    li.style.backgroundColor = '#ececec';
+            //         li.style.backgroundColor = '#c20086';
+            //     }
+            //     else {
+            //         li.style.backgroundColor = '#ececec';
        
-                }
-                li.appendChild(p);
-                li.appendChild(p2);
-                p.appendChild(text[count]);
-                p.appendChild(text2);
-                p2.appendChild(text3);
-                p2.appendChild(text4);
-                p2.appendChild(text5);
-                p2.appendChild(text6);
-                ul.appendChild(li);
+            //     }
+            //     li.appendChild(p);
+            //     li.appendChild(p2);
+            //     p.appendChild(text[count]);
+            //     p.appendChild(text2);
+            //     p2.appendChild(text3);
+            //     p2.appendChild(text4);
+            //     p2.appendChild(text5);
+            //     p2.appendChild(text6);
+            //     ul.appendChild(li);
                         }
                     }
                     })
                     }
     })
+
 }
