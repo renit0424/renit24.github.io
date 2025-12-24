@@ -73,9 +73,9 @@ function quake() {
                     var p = document.createElement('p');
                     var p2 = document.createElement('p');
                     // テキスト情報を作成
-                    // var text = document.createTextNode(type);
-                    // var text2= document.createTextNode(" "+time);
-                    // var text3 = document.createTextNode(name);
+                    var text = document.createTextNode(type);
+                    var text2= document.createTextNode(" "+time);
+                    var text3 = document.createTextNode(name);
 
                     var maxint = "0";
                     if (maxint == "1") { //震度1
@@ -110,9 +110,9 @@ function quake() {
                     }
                     li.appendChild(p);
                     li.appendChild(p2);
-                    //p.appendChild(text);
-                    // p.appendChild(text2);
-                    // p2.appendChild(text3);
+                    p.appendChild(text);
+                    p.appendChild(text2);
+                    p2.appendChild(text3);
                 
                     ul.appendChild(li);
                 }
@@ -120,5 +120,6 @@ function quake() {
         }
     })
 }
+
 
 
