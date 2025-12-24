@@ -9,7 +9,7 @@ function quake() {
     }).then(function(json) {
         for(var i = 0; i <= 1; i++){
             var url = "https://www.jma.go.jp/bosai/tsunami/data/"+json[i].json;
-                    //var url = "https://www.jma.go.jp/bosai/tsunami/data/20250602035816_20250602035202_VTSE41_0.json";
+            //var url = "https://www.jma.go.jp/bosai/tsunami/data/20250602035816_20250602035202_VTSE41_0.json";
             //var url = "https://renitapps.com/test/js_css/tsunami_sample.json";
             //var url = "https://www.jma.go.jp/bosai/quake/data/20210316045849_20210316045628_VXSE52_0.json"
             fetch(url).then(function(response) {
@@ -80,49 +80,41 @@ function quake() {
                     var maxint = "0";
                     if (maxint == "1") { //震度1
                         li.style.backgroundColor = '#ececec';
-        
                     } 
                     else if (maxint == "2") { //震度2
-                    
                     li.style.backgroundColor = '#0097ff';
-                    } else if (maxint == "3") { //震度3
-                        
+                    } else if (maxint == "3") { //震度3                        
                         li.style.backgroundColor = '#0058e4';
         
-                    } else if (maxint == "4") { //震度4
-                        
+                    } else if (maxint == "4") { //震度4                        
                         li.style.backgroundColor = '#f7ea41';
         
-                    } else if (maxint == "5-") { //震度5-
-                        
+                    } else if (maxint == "5-") { //震度5-                        
                         li.style.backgroundColor = '#ffc32e';
         
-                    } else if (maxint == "5+") { //震度5+
-                        
+                    } else if (maxint == "5+") { //震度5+                        
                         li.style.backgroundColor = '#ff962a';
         
-                    } else if (maxint == "6-") { //震度6-
-                        
+                    } else if (maxint == "6-") { //震度6-                        
                         li.style.backgroundColor = '#f91f1c';
         
                     } else if (maxint == "6+") { //震度6+
                         li.style.backgroundColor = '#c60036';
         
-                    } else if (maxint == "7") { //震度7
-                        
+                    } else if (maxint == "7") { //震度7                        
                         li.style.backgroundColor = '#c20086';
                     }
                     else {
                         li.style.backgroundColor = '#ececec';
         
                     }
-                    // li.appendChild(p);
-                    // li.appendChild(p2);
-                    // p.appendChild(text);
+                    li.appendChild(p);
+                    li.appendChild(p2);
+                    //p.appendChild(text);
                     // p.appendChild(text2);
                     // p2.appendChild(text3);
                 
-                    // ul.appendChild(li);
+                    ul.appendChild(li);
                 }
             })
         }
