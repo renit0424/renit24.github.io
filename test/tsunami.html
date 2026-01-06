@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>津波情報</title>
+<style>
+  body { font-family: sans-serif; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border: 1px solid #999; padding: 6px 10px; text-align: left; }
+  th { background: #f0f0f0; }
+
+  /* 色分け */
+  tr.major-warning { background-color: #C800FF; } /* 大津波警報 → 紫 */
+  tr.warning { background-color: #FF2800; }       /* 津波警報 → 赤 */
+  tr.advisory { background-color: #FAF500; }      /* 津波注意報 → 黄 */
+  tr.forecast { background-color: #87cefa; }      /* 津波予報報 → 水色 */
+  tr.none { background-color: #ffffff; }
+
+  .updated { margin: 8px 0; font-size: 0.9em; color: #555; }
+</style>
+</head>
+<body>
+
+<h2>津波情報(テスト)</h2>
+<div class="updated" id="updatedTime"></div>
+
+<table id="tsunamiTable">
+  <thead>
+    <tr>
+      <th>区分</th>
+      <th>地域</th>
+      <th>到達情報</th>
+      <th>最大津波高</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<script>
+const url = "https://raw.githubusercontent.com/renit0424/renit24.github.io/refs/heads/master/test/20251208232356_20251208231519_VTSE41_0.json";
+
+/* ArrivalTime → HH時mm分頃 */
+function formatArrivalTime(iso) {
+  if (!iso) return "";
+  const d = new Date(iso);
+  const hh = String(d.getHours()).padStart(2, "0");
+  const mm = String(d.getMinutes()).padStart(2, "0");
+  return `${hh}時${mm}分頃`;
+}
+
+/* 区分に応じた行クラス（大津波警報は紫） */
+function categoryClass(category) {
+  if (!category) return "none";
+  if (category.includes("大津波警報")) return "major-warning"; // 紫
+  if (category.includes("警報")) return "warning";             // 赤
+  if (category.includes("注意報")) return "advisory";           // 黄
+  if (category.includes("津波予報（若干の海面変動）")) return "forecast";   // 水色        // 黄
+  return "none";
+}
+
+/* 表を更新する関数 */
+async function updateTable() {
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+
+    const tbody = document.querySelector("#tsunamiTable tbody");
+    tbody.innerHTML = "";
+
+    const items = data?.Body?.Tsunami?.Forecast?.Item ?? [];
+
+    items.forEach(item => {
+      const category = item.Category?.Kind?.Name ?? "";
+      const area = item.Area?.Name ?? "";
+
+      /* ArrivalTime / Condition */
+      const fh = item.FirstHeight ?? {};
+      let arrival = "";
+      if (fh.ArrivalTime) {
+        arrival = formatArrivalTime(fh.ArrivalTime);
+        if (fh.Condition) arrival += ` ${fh.Condition}`;
+      } else if (fh.Condition) {
+        arrival = fh.Condition;
+      }
+
+      /* MaxHeight / Revise */
+      const mh = item.MaxHeight ?? {};
+      let maxHeight = "";
+      if (mh.TsunamiHeight) {
+        maxHeight = `${mh.TsunamiHeight}m`;
+        if (mh.Revise) maxHeight += ` ${mh.Revise}`;
+      }
+
+      const tr = document.createElement("tr");
+      tr.className = categoryClass(category);
+
+      [category, area, arrival, maxHeight].forEach(text => {
+        const td = document.createElement("td");
+        td.textContent = text;
+        tr.appendChild(td);
+      });
+
+      tbody.appendChild(tr);
+    });
+
+    /* 最終更新時刻表示 */
+    const now = new Date();
+    document.getElementById("updatedTime").textContent =
+      `最終更新：${now.toLocaleTimeString("ja-JP")}`;
+
+  } catch (e) {
+    console.error("更新エラー", e);
+  }
+}
+
+/* 初回表示 */
+updateTable();
+
+/* 1分ごとに自動更新 */
+setInterval(updateTable, 60 * 1000);
+</script>
+
+</body>
+</html>
