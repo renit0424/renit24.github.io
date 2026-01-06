@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>最新の地震情報一覧</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #888; padding: 8px; text-align: center; }
+    th { background: #f2f2f2; }
+  </style>
+</head>
+<body>
+
+<h1>最新の地震情報（気象庁）</h1>
+<p>※ 30秒ごとに自動更新／新着地震があると通知します</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>種別</th>
+      <th>発生時刻</th>
+      <th>震源地</th>
+      <th>深さ</th>
+      <th>マグニチュード</th>
+      <th>最大震度</th>
+    </tr>
+  </thead>
+  <tbody id="quake-list">
+    <tr><td colspan="6">読み込み中…</td></tr>
+  </tbody>
+</table>
+
+<!-- 通知音 -->
+<audio id="alert-sound">
+  <source src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg">
+</audio>
+
+<script>
+const URL = 'https://www.jma.go.jp/bosai/quake/data/list.json';
+const INTERVAL = 30000; // 30秒
+let lastEid = null;
+
+// 通知許可
+if ('Notification' in window && Notification.permission !== 'granted') {
+  Notification.requestPermission();
+}
+
+async function fetchQuakes() {
+  try {
+    const resp = await fetch(URL);
+    const data = await resp.json();
+
+    const tbody = document.getElementById('quake-list');
+    tbody.innerHTML = '';
+
+    // 最新地震チェック
+    if (data.length > 0) {
+      const newest = data[0];
+      if (lastEid && newest.eid !== lastEid) {
+        notifyNewQuake(newest);
+      }
+      lastEid = newest.eid;
+    }
+
+    data.forEach(item => {
+      const ttl = item.ttl || '-';
+
+      // 発生時刻
+      let formattedAt = '-';
+      if (item.at) {
+        const dt = new Date(item.at);
+        const mm = dt.getMonth() + 1;
+        const dd = dt.getDate();
+        const hh = dt.getHours();
+        const mi = dt.getMinutes().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' }).padStart(2, '0');
+        formattedAt = `${mm}月${dd}日 ${hh}時${mi}分頃`;
+      }
+
+      const anm = item.anm || '-';
+
+      // 深さ
+      let depth = '-';
+      if (item.cod) {
+        const m = item.cod.substr(12,6).split("/").join("")/1000;
+        if (m) {
+          const d = m;
+          depth = `${d}km`;
+        }
+      }
+
+      const mag = item.mag ? `M${item.mag}` : '-';
+      const maxi = item.maxi || '-';
+
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${ttl}</td>
+        <td>${formattedAt}</td>
+        <td>${anm}</td>
+        <td>${depth}</td>
+        <td>${mag}</td>
+        <td>${maxi}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+function notifyNewQuake(item) {
+  // 音を鳴らす
+  document.getElementById('alert-sound').play();
+
+  // ブラウザ通知
+  if (Notification.permission === 'granted') {
+    new Notification('新しい地震情報', {
+      body: `${item.anm || '不明'}  M${item.mag || '-'}  最大震度 ${item.maxi || '-'}`,
+      icon: 'https://www.jma.go.jp/jma/kishou/info/coment_earthquake.png'
+    });
+  }
+}
+
+// 初回実行
+fetchQuakes();
+
+// 自動更新
+setInterval(fetchQuakes, INTERVAL);
+</script>
+
+</body>
+</html>
