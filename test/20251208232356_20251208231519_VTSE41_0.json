@@ -59,7 +59,7 @@
             },
             "Category": {
               "Kind": {
-                "Name": "大津波警報",
+                "Name": "津波警報",
                 "Code": "51",
                 "enName": "Tsunami Warning"
               },
