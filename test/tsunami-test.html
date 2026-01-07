@@ -109,6 +109,19 @@ tr.forecast      { background: #1e88e5; }
   font-size: 1.2vh;
   color: rgba(255,255,255,0.5);
 }
+/* ===== 発表なし（中央・中くらい） ===== */
+.no-tsunami {
+  text-align: center;
+  font-size: 3.2vh;
+  font-weight: 700;
+  color: #fff;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.05em;
+}
+
 </style>
 </head>
 
@@ -141,7 +154,7 @@ tr.forecast      { background: #1e88e5; }
 
 <script>
 const url = "https://api.p2pquake.net/v2/jma/tsunami";
-
+//const url = "https://api.p2pquake.net/v2/jma/tsunami?limit=50&since_date=20240101&until_date=20240102";
 const pageSize = 6;
 let allItems = [];
 let currentPage = 0;
@@ -191,7 +204,7 @@ function renderPage(page) {
       : (fh.condition ?? "");
 
     const maxH = mh
-      ? `${mh.value}m`
+      ? `${mh.description}`
       : "";
 
     [areas.grade.replace("MajorWarning","大津波警報").replace("Warning","津波警報").replace("Watch","津波注意報") ?? "", areas.name ?? "", arrival, maxH]
@@ -212,9 +225,29 @@ async function updateTable() {
   try {
     const res = await fetch(url);
     const data = await res.json();
+    const tbody = document.querySelector("#tsunamiTable tbody");
 
-    allItems = data[0].areas??[];
-    console.log(allItems);
+    /* ===== 解除判定 ===== */
+    if (data[0]?.cancelled === true) {
+      allItems = [];
+      currentPage = 0;
+      if (rotateTimer) clearInterval(rotateTimer);
+
+      tbody.innerHTML = `
+        <tr>
+          <td colspan="4" class="no-tsunami">現在、津波警報・注意報は発表されていません</td>
+        </tr>
+      `;
+
+      document.getElementById("pageInfo").textContent = "";
+      document.getElementById("updatedTime").textContent =
+        `最終更新：${new Date().toLocaleTimeString("ja-JP")}`;
+
+      return;
+    }
+
+    /* ===== 通常表示 ===== */
+    allItems = data[0].areas ?? [];
     currentPage = 0;
     renderPage(currentPage);
 
@@ -234,13 +267,6 @@ async function updateTable() {
     console.error("更新エラー", e);
   }
 }
-
-/* フルスクリーン */
-document.getElementById("screen").addEventListener("click", () => {
-  if (!document.fullscreenElement) {
-    document.documentElement.requestFullscreen().catch(()=>{});
-  }
-});
 
 updateTable();
 setInterval(updateTable, 60000);
